@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login Page</title>
+    <meta charset="utf-8">
+    
+
+<meta name="google-signin-scope" content="profile email">
+    <meta name="google-signin-client_id" content="318809459837-1qp4bc11ldlf7jjoqjoqndsso7329mf3.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    
+    <link rel="stylesheet" type="text/css" href="stylesheets/file.css">
+    <link href='https://fonts.googleapis.com/css?family=Nanum+Gothic' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+    <script src="javascripts/file.js"></script>
+  </head>
+  <body onload="getUserInfo({})">
+    <script>
+       var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+            
+                if (this.readyState == 4 && this.status == 200) {
+                
+                    // convert from string to JSON, populate hotels array
+                    user = JSON.parse(xhttp.responseText);
+                    
+                   document.getElementById('getusername').innerHTML="Welcome! "+user.username;
+                }
+         };	
+        //Initiate Connection
+        
+        xhttp.open("GET", "getusername", true);
+        xhttp.setRequestHeader("Content-type","application/json");
+      //sending the request
+        xhttp.send();
+        //Google user
+       function onSignIn(googleUser) {
+            // Useful data for your client-side scripts:
+            var profile = googleUser.getBasicProfile();
+            console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+            console.log('Full Name: ' + profile.getName());
+            console.log('Given Name: ' + profile.getGivenName());
+            console.log('Family Name: ' + profile.getFamilyName());
+            console.log("Image URL: " + profile.getImageUrl());
+            console.log("Email: " + profile.getEmail());
+
+            // The ID token you need to pass to your backend:
+            var id_token = googleUser.getAuthResponse().id_token;
+            console.log("ID Token: " + id_token);
+            
+            // Pass the token to my getUserInfo
+            getUserInfo({idtoken: id_token});
+        };
+      
+      function getUserInfo(params) {
+            // Create new AJAX request
+            var xhttp = new XMLHttpRequest();
+            
+            // Define behaviour for a response
+            xhttp.onreadystatechange = function() {
+            
+                if (this.readyState == 4 && this.status == 200) {
+                
+                    // convert from string to JSON, populate hotels array
+                    user = JSON.parse(xhttp.responseText);
+                    
+                    // Check is logged in
+                    if(user.username !== null){
+                        alert(user.username+" successfully logged in!");
+                    	document.getElementById('getusername').innerHTML="Welcome! "+user.username;
+                    // Login failed
+                    } else {
+                       alert("google user log in failed!");
+                    }
+                }
+            };
+            
+            // Initiate connection
+            xhttp.open("POST", "/googleuser.json", true);
+            
+            xhttp.setRequestHeader("Content-type","application/json");
+            
+            // Send request
+            xhttp.send(JSON.stringify(params));
+        }
+      
+      function submitLogin(){
+        var UN=document.getElementById('UorE').value;
+        var PW=document.getElementById('Pw').value;
+        var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+            
+                if (this.readyState == 4 && this.status == 200) {
+                
+                    // convert from string to JSON, populate hotels array
+                    user = JSON.parse(xhttp.responseText);
+                    
+                    // Check is logged in
+                    if(user.status==="good")
+                    	alert(user.username+" successfully logged in!");
+                    	document.getElementById('getusername').innerHTML="Welcome! "+user.username;
+                   	if(user.status==="bad"){
+                   		console.log(user.status);
+                    	alert(UN+" does not exists!!");
+                    }
+                }
+         };	
+        //Initiate Connection
+        
+        xhttp.open("POST", "signin", true);
+        xhttp.setRequestHeader("Content-type","application/json");
+      //sending the request
+      if(UN!=""&&PW!="")
+      	xhttp.send(JSON.stringify({"username":UN, "password":PW}));
+      else
+      	alert("Please fill in the username and password");
+      }
+    </script>
+
+    <div class="outsideheader">
+  		<header>
+  			<div id="logo">
+  				<a  id="linkpageindex" href="index.html">
+  					<img src="images/loto.svg" alt="" width="200" height="50">
+  				</a>
+  			</div>
+  			<div id="getusername" style="float:left;color:white;margin:12px;font-size:1.5em";></div>
+        <div>
+          <ul class="nav">
+            <li><a style="font-family:Montserrat;font-size:12px;" href="LogIn.html">Sign in</a></li>
+            <li><a style="font-family:Montserrat;font-size:12px;" href="signUp.html">Register</a></li>
+            <li><a style="font-family:Montserrat;font-size:12px;">My Searches</a></li>
+            <li><a style="font-family:Montserrat;font-size:12px;">Recently Viewed</a></li>
+					</ul>
+        </div>
+      </header>
+      <article>
+        <div id="logbox">
+          <br>
+          <h1>Sign In</h1>
+          <p>Username:</p>
+          <input type="text" name="UorE" id="UorE"><br>
+          <p>Password:</p>
+          <input type="password" name="Pw" id="Pw"><br>
+          <br>
+          <button onclick="submitLogin()">Sign In</button>
+          <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark" style="margin-left:165px;margin-top:10px"></div>
+          <br>
+          <p style="text-align:center"><a href="signUp.html" style="text-align:center"> Don't have an account? Register.</a></p>
+        </div>
+    </article>
+      <footer>
+  			<p style="text-align:center"><a href="termsofuse.html" style="text-align:center"><u>Terms of Use</u></a> &nbsp;&nbsp;<a href="AboutUs.html"><u>About Us</u></a> &nbsp;&nbsp;<a href="ContactUs.html"><u>Contact Us</u></a></p>
+      </footer>
+      </div>
+  </body>
+</html>

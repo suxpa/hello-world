@@ -1,0 +1,459 @@
+a { 
+
+    text-decoration: none;
+
+}
+body {
+  font-family: Montserrat;
+  background-color:#F4F4F4;
+}
+
+header {
+  margin: 0 auto;
+  width:100%;
+  height:47px;
+  background-color:#00AEF0;
+}
+
+article {
+  background-color:#F4F4F4;
+  width:100%;
+  height:100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+footer {
+  display: inline-block;
+  background-color:#00AEF0;
+  width:100%;
+  height: 50px;
+  
+
+}
+
+div {
+  padding:0px;
+  margin:0px;
+  border:0px;
+}
+
+ul.nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 0 0 0;
+    overflow: hidden;
+    background-color: #00AEF0;
+}
+
+ul.nav li {
+   float: right;
+    font-family:'Raleway',"Sans serif";
+    font-size:0.8em;
+}
+li a {
+    display: block;
+    color: white;
+    text-align: right;
+    padding: 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+	color: #00AEF0;
+    background-color: white;
+}
+
+h1{
+  font-family: Nanum Gothic;
+}
+
+p{
+  font-family: Montserrat;
+}
+
+#center-align{
+  text-align: center;
+}
+
+#nav {
+  background-color:#00AEF0;
+
+}
+
+#logo {
+  float: left;
+  height: 47px;
+  background-color:#00AEF0;
+
+}
+#currency {
+  float:right;
+  margin-right:10px;
+  width:180px;
+  height:50px;
+  background-color:#00AEF0;
+}
+
+
+.hotelname{
+	height: 50px;
+	width:100%;
+  text-align: center;
+}
+
+#search {
+  float:left;
+	height:600px;
+	width:270px;
+	border-radius: 15px;
+  margin-top:25px;
+	background-color:#2C4162;
+}
+
+#hotel{
+  float:right;
+	height:370px;
+	width:800px;
+	border-radius: 10px;
+	border:2px solid #CCCCCC;
+	background-color:#F4F4F4;
+	margin-top:25px;
+}
+
+#box {
+  width:790px;
+  height:360px;
+  margin-top: 5px;
+  border-radius: 10px;
+  background-color: #F4F4F4;
+}
+
+#moreinfo{
+  float: right;
+	height:375px;
+	width:800px;
+	border-radius: 10px;
+	background-color: #F4F4F4;
+	border:2px solid #CCCCCC;
+	margin-top: 10px;
+}
+
+#search-button{
+	width:200px;
+	text-align:center;
+	height:50px;
+	border-radius:10px;
+	color:white;
+	margin:30px auto;
+	background-color:#11B95C;
+}
+
+#submit-button{
+	width:60px;
+	text-align:right;
+	height:25px;
+	border-radius:10px;
+	color:white;
+	margin:30px auto;
+	background-color:#11B95C;
+}
+#logbox {
+  border:2px solid #CCCCCC;
+  float: center;
+  text-align: center;
+  margin-top: 50px;
+  margin-left: 375px;
+  border-radius: 15px;
+  margin-bottom:  50px;
+  width:450px;
+  height:325px;
+  background-color: ghostwhite;
+}
+#register {
+  border:2px solid #CCCCCC;
+  float: center;
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  margin-left: 375px;
+  border-radius: 15px;
+  width:450px;
+  height:600px;
+  background-color: ghostwhite;
+}
+
+.info {
+	float:center;
+	margin:500px;
+	padding:10px;
+	content:80%;
+	border: 15px solid red;
+	border-radius: 15px;
+	font-family: 'Nanum Gothic';
+	content:50px;
+	text-align: center;
+	font-size: 0.8em;
+	list-style-type: none;
+	margin: 3px;
+	overflow: hidden;
+	background-color:#000080;
+	border:25px;
+}
+
+.info2{
+  margin-top:5px;
+  margin-bottom: 5px;
+  border-radius: 5px;
+  top:50%;
+  left:50%;
+  width:500px;
+  background-color: #2C4162;
+  margin: 0 auto;
+  border:5px;
+  font-family: 'Nanum Gothic';
+  text-align: center;
+}
+
+.HIW
+{
+	width:auto;
+	padding: 15px;
+	margin: 0px 10px 10px 0px;
+}
+
+.center {
+  display: inline;
+  margin-left: auto;
+  margin-right: auto;
+
+}
+
+
+
+
+a:hover{
+	text-decoration: none;
+}
+
+/* Dropdown Button */
+.dropbtn {
+    background-color: #00AEF0;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Dropdown button on hover & focus */
+.dropbtn:hover, .dropbtn:focus {
+    background-color: white;
+		color: #00AEF0;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: static;
+    top:0;
+    left:100%;
+    z-index: 999;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #cccccc;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #cccccc}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {display:block;}
+
+.nav {
+		float:right;
+}
+
+.submit{
+	font-family: 'Nanum Gothic';
+	color:#8c8c8c;
+	background-color: #404040;
+	border-radius: 2px;
+}
+
+#l_content{
+	background-color:#2C4162;
+	width:800px;
+	height:530px;
+	float:left;
+
+}
+#r_content{
+	float:right;
+	width:500px;
+	height:700px;
+
+}
+
+  #mid-top{
+  	width:1300px;
+  	color:white;
+  	height:750px;
+  	margin:0px auto;
+  	padding-top:20px;
+
+  }
+
+  #destInfo{
+  	width:100%;
+  	height:125px;
+
+  }
+  #searchResultList{
+  	width:100%;
+  	height:80%;
+  	background-color:white;
+  	margin-top:50px;
+  }
+
+  #hotelitem h2 {
+  	margin:0 5px;
+  }
+
+}
+.floatleft{
+  float:left;
+}
+.floatright{
+  float:right;
+}
+
+.submit{
+	font-family: 'Nanum Gothic';
+	color:#8c8c8c;
+	background-color: #404040;
+	border-radius: 2px;
+}
+
+.input
+{	float:table-column;
+	width: 65%;
+	border: 1px solid darkseagreen;
+	padding: 15px;
+    margin: 0px 10px 10px 250px;
+    min-height: 100px;
+}
+
+#right{
+  margin-top: 25px;
+	margin-left:280px;
+	width:810px;
+  border:2px solid #CCCCCC;
+  border-radius: 15px;
+  background-color: white;
+
+}
+
+#refine{
+	width:260px;
+	background-color:white;
+	margin-top:20px;
+}
+
+#accinfo{
+  border:2px solid #CCCCCC;
+  float: right;
+  text-align: center;
+  margin-top: 25px;
+  margin-right: 200px;
+  border-radius: 15px;
+  margin-bottom:  50px;
+  width:600px;
+  height:800px;
+  background-color: ghostwhite;
+
+}
+
+#givereviewbox {
+  float:right;
+  height:290px;
+  width:800px;
+  border-radius: 10px;
+  border:2px solid #CCCCCC;
+  background-color:#F4F4F4;
+  margin-top:10px;
+}
+
+#termsbox{
+  border:2px solid #CCCCCC;
+  float: right;
+  text-align: left;
+  text-indent: 10px;
+  margin-top: 25px;
+  margin-right: 60px;
+  border-radius: 15px;
+  margin-bottom:  50px;
+  width:700px;
+  height:500px;
+  background-color: ghostwhite;
+  display:inline-block;
+  font-family: Ubuntu;
+}
+.centerdiv {
+  width:1200px;
+  margin: 0 auto;
+
+}
+
+.outsideheader{
+  width:1100px;
+  margin: 0 auto;
+}
+/*for vertical menu in account information*/
+.vertical-menu {
+    width: 200px;
+}
+
+.vertical-menu a {
+    border-radius: 15px;
+    background-color: #eee;
+    color: black;
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+}
+
+.vertical-menu a:hover {
+    background-color: #ccc;
+}
+
+.vertical-menu a.active {
+    background-color: #00AEF0;
+    color: white;
+}
+
+.vertnav{
+  float:left;
+  margin-left: 90px;
+  margin-top: 25px;
+
+}
+
+.account {
+  width:1000px;
+}

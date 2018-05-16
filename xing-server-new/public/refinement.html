@@ -1,0 +1,152 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script src="javascripts/file.js"></script>
+		<title>Result list</title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/file.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway%7CNoto+Serif">
+</head>
+	<body>
+		<script>
+			       var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+            
+                if (this.readyState == 4 && this.status == 200) {
+                
+                    // convert from string to JSON, populate hotels array
+                    user = JSON.parse(xhttp.responseText);
+                    
+                   document.getElementById('getusername').innerHTML="Welcome! "+user.username;
+                }
+         };	
+        //Initiate Connection
+        
+        xhttp.open("GET", "getusername", true);
+        xhttp.setRequestHeader("Content-type","application/json");
+      //sending the request
+        xhttp.send();
+		</script>
+	    <div class="outsideheader">
+	  		<header>
+	  			<div id="logo">
+	  				<a  id="linkpageindex" href="index.html">
+	  					<img src="images/loto.svg" alt="" width="200" height="50">
+	  				</a>
+	  			</div>
+	  			<div id="getusername" style="float:left;color:white;margin:12px;font-size:1.5em";></div>
+			<ul class="nav">
+
+				<li><a style="font-family:Montserrat;font-size:12px;" href="LogIn.html">Sign in</a></li>
+				<li><a style="font-family:Montserrat;font-size:12px;" href="signUp.html">Register</a></li>
+				<li><a style="font-family:Montserrat;font-size:12px;">My Searches</a></li>
+				<li><a style="font-family:Montserrat;font-size:12px;">Recently Viewed</a></li>
+				<li>
+				<div class="dropdown">
+					<button onclick="myFunction()" class="dropbtn" style="font-size:12px;font-family:Montserrat">Currency</button>
+					<div id="myDropdown" class="dropdown-content" style="text-align: center;">
+						<a style="font-size:10px;text-align:center;" href="$AUD">$AUD</a>
+						<a style="font-size:10px;text-align:center;" href="€Euro">&euro;Euro</a>
+						<a style="font-size:10px;text-align:center;" href="$USD">$USD</a>
+						<a style="font-size:10px;text-align:center;" href="£GBP">£GBP</a>
+					</div>
+			</div>
+		</li>
+			</ul>
+		</header>
+		<article>
+			<div id="search" style="color:white;">
+				<div>
+						<h2 style="margin-left: 10px;text-align:left;color:white;">Search Hotels</h2>
+					</div>
+					<div>
+						<p style="margin-left:10px;">where?</p>
+						<input type="text" name="place" value="Adelaide" style="margin:10px;width:198px;height:30px;">
+						<p style="margin-left:10px;">Check-in</p>
+						<input type="text" name="place"  style="margin:10px;width:198px;height:30px;">
+						<p style="margin-left:10px;">Check-out</p>
+						<input type="text" name="place"  style="margin:10px;width:198px;height:30px;">
+						<p style="margin-left:10px;">Rooms for</p>
+						 <select style="margin:10px;width:198px;height:30px;">
+							 <option value="1">1</option>
+							 <option value="2">2</option>
+							 <option value="3">3</option>
+							 <option value="4" selected>4</option>
+						</select>
+						<div id="search-button"><p style="padding-top:17px;">Search</p></div>
+					</div>
+			</div>
+				<div id="right">
+					<div id="destInfo">
+						<div>
+							<h1 style="margin-left:10px;">Destination</h1>
+						</div>
+						<div>
+							<h4 style="margin-left:10px;"> one night/two adults</h4>
+						</div>
+						<div id="sortby">
+							<h2 style="margin-left:10px;"> Sort by: <span style="margin:0 20px">Recommended by us</span> <span style="margin:0 20px">Price Stars</span><span style="margin:0 20px"> Guest Rating</span> </h2>
+
+					  </div>
+					</div>
+					<div id="searchResultList">
+						<div class="hotelitem">
+							<div style="width:75%;height:100px;">
+								<h2 class="floatright">Ratings:9.5</h2>
+								 <a href="hotelsPage.html"><h2 style="margin-left:10px;">Land of Promise </h2></a>
+
+							</div>
+							<div>							  <a href="hotelsPage.html"><img src="images/hotel.jpg" alt="hotel" style="width:500px;margin-left:50px;margin-bottom:50px;" /></a>					        </div>
+							<hr/>
+						</div>
+						<div class="hotelitem">
+							<div style="width:100%;height:100px;">
+								<a href="hotelsPage.html"><h2 class="floatleft" style="margin-left:10px;">Land of Promise</h2></a>
+								<h2 class="floatright">Ratings:9.7</h2>
+							</div>
+							<div>
+								<a href="hotelsPage.html"><img src="images/hotel.jpg" alt="hotel" style="width:500px;margin-left:50px;margin-bottom:50px;" /></a>
+							</div>
+							<hr/>
+						</div>
+						<div class="hotelitem">
+							<div style="width:100%;height:100px;">
+								 <a href="hotelsPage.html"><h2 class="floatleft">Land of Promise</h2></a>
+								<h2 class="floatright">Ratings:9.7</h2>
+							</div>
+							<div>
+								 <a href="hotelsPage.html"><img src="images/hotel.jpg" alt="hotel" style="width:500px;margin-left:50px;margin-bottom:50px;" /></a>
+							</div>
+							<hr/>
+						</div>
+						<div class="hotelitem">
+							<div style="width:100%;height:100px;">
+								<h2 class="floatleft">Land of Promise</h2>
+								<h2 class="floatright">Ratings:9.7</h2>
+							</div>
+							<div>
+								<img src="images/hotel.jpg"  alt="hotel" style="width:500px;margin-left:50px;margin-bottom:50px;" />
+							</div>
+							<hr/>
+						</div>
+						<div class="hotelitem">
+							<div style="width:100%;height:100px;">
+								<h2 class="floatleft">Land of Promise</h2>
+								<h2 class="floatright">Ratings:9.7</h2>
+							</div>
+							<div>
+								<img src="images/hotel.jpg" alt="hotel" style="width:500px;margin-left:50px;margin-bottom:50px;" />
+							</div>
+							<hr/>
+						</div>
+
+					</div>
+				</div>
+			</article>
+				<footer>
+					<p style="text-align:center"><a href="termsofuse.html" style="text-align:center"><u>Terms of Use</u></a> &nbsp;&nbsp;<a href="AboutUs.html"><u>About Us</u></a> &nbsp;&nbsp;<a href="ContactUs.html"><u>Contact Us</u></a></p>
+
+				</footer>
+				</div>
+	</body>
+</html>

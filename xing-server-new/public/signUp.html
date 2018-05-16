@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>SignUp Page</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="stylesheets/file.css">
+    <script src="javascripts/file.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Nanum+Gothic' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+
+  </head>
+  <body>
+      <div class="outsideheader">
+    		<header>
+    			<div id="logo">
+    				<a  id="linkpageindex" href="index.html">
+    					<img src="images/loto.svg" alt="" width="200" height="50">
+    				</a>
+    			</div>
+    			<div id="getusername" style="float:left;color:white;margin:12px;font-size:1.5em";></div>
+        <div id="navigation">
+          <ul class="nav">
+            <li><a style="font-family:Montserrat;font-size:12px;" href="LogIn.html">Sign in</a></li>
+            <li><a style="font-family:Montserrat;font-size:12px;" href="signUp.html">Register</a></li>
+            <li><a style="font-family:Montserrat;font-size:12px;">My Searches</a></li>
+						<li><a style="font-family:Montserrat;font-size:12px;">Recently Viewed</a></li>
+					</ul>
+        </div>
+    </header>
+    <article>
+        <div id="register">
+          <br>
+          <h1>Sign Up</h1>
+          <p>Email:</p>
+          <input type="text" name="Email:" id="email" ><br>
+          <p>Surname: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Given Name:</p>
+          <input type="text" name="Surname" id="sn">&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" name="Given Name" id="gn"><br>
+          <p>Username:</p>
+          <input type="text" name="Username:" id="un"><br>
+          <p>Date of Birth:</p>
+          <input type="date" name="DOB" id="dob"><br>
+          <p>Password:</p>
+          <input type="password" name="Password:" id="pw1"><br>
+          <p>Confirm Password:</p>
+          <input type="password" name="Password Confirmation" id="pw2"><br>
+          <br>
+          <button onclick="submit()">Sign Up</button>
+        </div>
+      </article>
+      <footer>
+        <div id="footer">
+          <p style="text-align:center"><a href="termsofuse.html" style="text-align:center"><u>Terms of Use</u></a> &nbsp;&nbsp;<a href="AboutUs.html"><u>About Us</u></a> &nbsp;&nbsp;<a href="ContactUs.html"><u>Contact Us</u></a></p>
+        </div>
+      </footer>
+      </div>
+  </body>
+   <script>
+     var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+            
+                if (this.readyState == 4 && this.status == 200) {
+                
+                    // convert from string to JSON, populate hotels array
+                    var user = JSON.parse(xhttp.responseText);
+                    
+                   document.getElementById('getusername').innerHTML="Welcome! "+user.username;
+                }
+         };	
+      xhttp.open("GET", "getusername", true);
+        xhttp.setRequestHeader("Content-type","application/json");
+      //sending the request
+        xhttp.send();
+      function submit(){
+      
+      	var user;
+        var email=document.getElementById('email').value;
+        var sn=document.getElementById('sn').value;
+        var gn=document.getElementById('gn').value;
+        var un=document.getElementById('un').value;
+        var dob=document.getElementById('dob').value;
+        var pw1=document.getElementById('pw1').value;
+        var pw2=document.getElementById('pw2').value;
+     	//if (email!="") alert(email+" exists!!");
+     	//console.log(email);
+        var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+            
+                if (this.readyState == 4 && this.status == 200) {
+                
+                    // convert from string to JSON, populate hotels array
+                    user = JSON.parse(xhttp.responseText);
+                    
+                    // Check is logged in
+                    if(user.status==="good")
+                    	alert(user.username+" successfully created");
+                    	document.getElementById('getusername').innerHTML="Welcome! "+user.username;
+                   	if(user.status==="bad"){
+                   		console.log(user.status);
+                    	alert(user.username+" exists!!");
+                    }
+                }
+         };	
+        //Initiate Connection
+        xhttp.open("POST", "/signup", true);
+        xhttp.setRequestHeader("Content-type","application/json");
+      //sending the request
+      if(email!=""&&sn!=""&&un!=""&&dob!=""&&gn!=""&&pw1!=""&&pw2!=""&&pw1===pw2)
+      	xhttp.send(JSON.stringify({"email":email,"surname":sn,"givenname":gn,"username":un,"dob":dob,"password":pw1}));
+      else if(pw1!=pw2)
+      			alert("two passwords do not match, please correct");
+      		else
+      			alert("please fill in all the form");
+      }
+    </script>
+</html>

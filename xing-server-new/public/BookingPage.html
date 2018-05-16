@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head class = "headpage">
+	<meta charset ="utf-8">
+<title> Booking Page </title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/file.css">
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Nanum+Gothic' rel='stylesheet'>
+	<script src="javascripts/file.js"></script>
+</head>
+<body>
+	<script>
+
+		function submitBooking(){
+			var CI=document.getElementById('CID').value;
+			var CO=document.getElementById('COD').value;
+			var lOPeople = document.getElementById('AOP').value;
+			var lOfFn = document.getElementById('FN').value;
+			var lOfLn = document.getElementById('LN').value;
+			var lofEmails = document.getElementById('EM').value;
+			var lOfCountries = document.getElementById('COO').value;
+
+			var xhttp = new XMLHttpRequest();
+			xhttp.open("POST", "booking", true);
+			xhttp.setRequestHeader("Content-type","application/json");
+			xhttp.send(JSON.stringify({"cIDate":CI, "cODate":CO, "People":lOPeople, "fName":lOfFn, "lName":lOfLn, "Email":lofEmails, "Countries": lOfCountries}))
+		}
+	</script>
+	<div class="outsideheader">
+		<header>
+			<div id="logo">
+				<a  id="linkpageindex" href="index.html">
+					<img src="images/loto.svg" alt="" width="200" height="50">
+				</a>
+			</div>
+		<ul class="nav">
+
+			<li><a style="font-family:Montserrat;font-size:12px;" href="LogIn.html">Sign in</a></li>
+			<li><a style="font-family:Montserrat;font-size:12px;" href="signUp.html">Register</a></li>
+			<li><a style="font-family:Montserrat;font-size:12px;">My Searches</a></li>
+			<li><a style="font-family:Montserrat;font-size:12px;">Recently Viewed</a></li>
+			<li>
+			<div class="dropdown">
+				<button onclick="myFunction()" class="dropbtn" style="font-size:12px;font-family:Montserrat">Currency</button>
+				<div id="myDropdown" class="dropdown-content" style="text-align: center;">
+					<a style="font-size:10px;text-align:center;" href="$AUD">$AUD</a>
+					<a style="font-size:10px;text-align:center;" href="€Euro">&euro;Euro</a>
+					<a style="font-size:10px;text-align:center;" href="$USD">$USD</a>
+					<a style="font-size:10px;text-align:center;" href="£GBP">£GBP</a>
+				</div>
+		</div>
+		</li>
+	</ul>
+	</header>
+	<article>
+		<h1 style="text-align:center;">Booking</h1>
+		<div style="margin-top:10px;margin-bottom:10px; color:white" class="info2">
+			<br>
+			<br>
+			<label>Check-In</label>
+			<input  id="CID" type="date"><br><br>
+			<label>Check-Out</label>
+			<input  id="COD" type="date"><br><br>
+			<label>People</label>
+			<input type ="text" id="AOP" placeholder="People"><br><br>
+			<br>
+			<br>
+		</div>
+		<br>
+		<div style="margin-top:10px;margin-bottom:10px;color:white" class="info2">
+			<br>
+			<br>
+			<label>First Name</label>
+			<input type="text" id="FN" placeholder="First Name"><br><br>
+			<label>Last Name</label>
+			<input type = "text" id="LN" placeholder="Last Name"><br><br>
+			<label>Email</label>
+			<input type = "text" id="EM" placeholder="Email"><br><br>
+			<label>Country</label>
+			<input type = "text" id="COO" placeholder="Country"><br><br>
+			<div id="search-button" onclick="submitBooking()"><p style="padding-top:17px;"><a href="#" style="text-decoration:none;color:white;">Submit</a></p></div>
+			<br>
+			<br>
+		</div>
+		<br>
+		<div style="margin-left:auto;margin-right:auto;">
+			<img class="center" style="padding:5px;width:326px;height:200px;margin:10px 10px;" src="images/sydney.jpg" alt="Picture of Sydney Harbour">
+			<img class="center" style="padding:5px;width:326px;height:200px;margin:10px 10px;" src="images/beach.jpg" alt="Australian Beach">
+			<img class="center" style="padding:5px;width:326px;height:200px;margin:10px 10px;" src="images/uluru.jpg" alt="Australian Monument; Uluru">
+		</div>
+
+</article>
+<footer>
+	<p style="text-align:center"><a href="termsofuse.html" style="text-align:center"><u>Terms of Use</u></a> &nbsp;&nbsp;<a href="AboutUs.html"><u>About Us</u></a> &nbsp;&nbsp;<a href="ContactUs.html"><u>Contact Us</u></a></p>
+</footer>
+</div>
+</body>
+</html>

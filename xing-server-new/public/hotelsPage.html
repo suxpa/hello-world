@@ -1,0 +1,133 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>HotelSearch - Hotel Page</title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/file.css">
+		<link href='https://fonts.googleapis.com/css?family=Nanum+Gothic' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+		<link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet'>
+		<script src="javascripts/file.js"></script>
+	</head>
+	<body>
+		<script>
+			       var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+            
+                if (this.readyState == 4 && this.status == 200) {
+                
+                    // convert from string to JSON, populate hotels array
+                    user = JSON.parse(xhttp.responseText);
+                    
+                   document.getElementById('getusername').innerHTML="Welcome! "+user.username;
+                }
+         };	
+        //Initiate Connection
+        
+        xhttp.open("GET", "getusername", true);
+        xhttp.setRequestHeader("Content-type","application/json");
+      //sending the request
+        xhttp.send();
+	
+
+			function submitFeedback(){
+					alert("Thank you! we have received your comments!");
+				var nOfPeople=document.getElementById('First-Name').value;
+				var lOfComments=document.getElementById('Comment').value;
+
+
+
+				var xhttp = new XMLHttpRequest();
+				xhttp.open("POST", "hotelreview", true);
+
+				xhttp.setRequestHeader("Content-type", "application/json");
+				xhttp.send(JSON.stringify({fName:nOfPeople, comments:lOfComments}));
+			
+		}
+	
+		
+		</script>
+
+		<div class="outsideheader">
+			<header>
+				<div id="logo">
+					<a  id="linkpageindex" href="index.html">
+						<img src="images/loto.svg" alt="" width="200" height="50">
+					</a>
+				</div>
+				<div id="getusername" style="float:left;color:white;margin:12px;font-size:1.5em";></div>
+      <ul class="nav">
+
+        <li><a style="font-family:Montserrat;font-size:12px;" href="LogIn.html">Sign in</a></li>
+        <li><a style="font-family:Montserrat;font-size:12px;" href="signUp.html">Register</a></li>
+        <li><a style="font-family:Montserrat;font-size:12px;">My Searches</a></li>
+        <li><a style="font-family:Montserrat;font-size:12px;">Recently Viewed</a></li>
+				<li>
+        <div class="dropdown">
+          <button onclick="myFunction()" class="dropbtn" style="font-size:12px;font-family:Montserrat">Currency</button>
+          <div id="myDropdown" class="dropdown-content" style="text-align: center;">
+            <a style="font-size:10px;text-align:center;" href="$AUD">$AUD</a>
+            <a style="font-size:10px;text-align:center;" href="€Euro">&euro;Euro</a>
+            <a style="font-size:10px;text-align:center;" href="$USD">$USD</a>
+            <a style="font-size:10px;text-align:center;" href="£GBP">£GBP</a>
+          </div>
+      </div>
+		</li>
+      </ul>
+    </header>
+    <article>
+      <div id="hotelname">
+        <h1 style="color:black;margin-top:30px;margin-bottom:30px;text-align:center;">Park Hyatt Sydney</h1>
+      </div>
+      <div id="search" style="color:white;">
+        <div>
+            <h2 style="margin-left: 10px;text-align:left;color:white;">Search Hotels</h2>
+          </div>
+          <div>
+            <p style="margin-left:10px;">where?</p>
+            <input type="text" name="place" value="Adelaide" style="margin:10px;width:198px;height:30px;">
+            <p style="margin-left:10px;">Check-in</p>
+            <input type="text" name="place"  style="margin:10px;width:198px;height:30px;">
+            <p style="margin-left:10px;">Check-out</p>
+            <input type="text" name="place"  style="margin:10px;width:198px;height:30px;">
+            <p style="margin-left:10px;">Rooms for</p>
+             <select style="margin:10px;width:198px;height:30px;">
+               <option value="1">1</option>
+               <option value="2">2</option>
+               <option value="3">3</option>
+               <option value="4" selected>4</option>
+            </select>
+            <div id="search-button"><p style="padding-top:17px;">Search</p></div>
+          </div>
+      </div>
+			<div id="hotel">
+				<div  id="box">
+					<br>
+					<br>
+					<br>
+					<img src="images/sydneyhotel.jpg" alt="Park Hotel Sydney" style="margin-left:190px;width:500px;height:250px;" />
+				</div>
+			</div>
+			<div id="moreinfo">
+				<div id="textbox">
+					<br>
+					<p style="text-align:left;margin-left:10px;font-size:20px;">With panoramic views of Sydney Opera House, Park Hyatt Sydney is a five-star hotel that is difficult to fault. From the service that seeks to cater to each guest individually, the fine dining experience in The Dining Room, rooftop pool and excellent spa, this hotel is a truly luxurious experience.</p>
+					<br>
+					<p style="text-align:center"> "Very nice place. I loved everything." - A Trip Advisor Members</p>
+					<br>
+					<p style="text-align:center"><a href="BookingPage.html" style="color:red;font-size:2em">Book Here</a></p>
+				</div>
+			</div>
+			<div id="givereviewbox">
+				<h3 style="margin-left:5px;">Stayed at this hotel? Review it!</h3>
+				<input style="margin: 0px 0px 0px 80px;" type="text" id="First-Name" placeholder="First Name"><br>
+				<input style="margin: 20px 0px 0px 80px;;" class ="input" id="Comment" placeholder="Review the hotel here..."><br>
+				<div style="text-align:right;margin-right:170px;"><button onclick="submitFeedback()">Submit</button></div>
+			</div>
+    </article>
+    <footer>
+			<p style="text-align:center;"><a href="termsofuse.html" style="text-align:center"><u>Terms of Use</u></a> &nbsp;&nbsp;<a href="AboutUs.html"><u>About Us</u></a> &nbsp;&nbsp;<a href="ContactUs.html"><u>Contact Us</u></a></p>
+    </footer>
+		</div>
+	</body>
+</html>

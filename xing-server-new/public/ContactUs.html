@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+<title> Contact Us </title>
+	<link rel="stylesheet" type="text/css" href="stylesheets/file.css">
+	<link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+	<link href='https://fonts.googleapis.com/css?family=Nanum+Gothic' rel='stylesheet'>
+</head>
+<body>
+	<script>
+		var fName;
+		var Emails;
+		var countries;
+		var comments;
+		function submit(){
+			alert("Thank you! we have received your comments!");
+			var nOfPeople=document.getElementById('First-Name').value;
+			var lOfEmails=document.getElementById('Email').value;
+			var lOfCountry=document.getElementById('Country').value;
+			var lOfComments=document.getElementById('Comment').value;
+
+			var xhttp = new XMLHttpRequest();
+		xhttp.open("POST", "contactus", true);
+
+		xhttp.setRequestHeader("Content-type", "application/json");
+		xhttp.send(JSON.stringify({fName:nOfPeople, Emails:lOfEmails, countries:lOfCountry, comments:lOfComments}));
+		
+		}
+	</script>
+
+<div class="outsideheader">
+	<header>
+		<div id="logo">
+			<a  id="linkpageindex" href="index.html">
+				<img src="images/loto.svg" alt="" width="200" height="50">
+			</a>
+		</div>
+	<div>
+		<ul class="nav">
+			<li><a style="font-family:Montserrat;font-size:12px;" href="LogIn.html">Sign in</a></li>
+			<li><a style="font-family:Montserrat;font-size:12px;" href="signUp.html">Register</a></li>
+			<li><a style="font-family:Montserrat;font-size:12px;">My Searches</a></li>
+			<li><a style="font-family:Montserrat;font-size:12px;">Recently Viewed</a></li>
+		</ul>
+	</div>
+	</header>
+
+	<article>
+		<h1 style="text-align:center;">Contact Us</h1>
+		<input type ="text" id="First-Name" class ="input" placeholder="First Name"><br>
+		<input class ="input" id="Email" placeholder="Email"><br>
+		<input class ="input" id="Country" placeholder="Country"><br>
+		<input class ="input" id="Comment" placeholder="Enter comment here"><br>
+		<button class="submit" style="padding: 5px;margin-left:600px" onclick="submit()">SUBMIT</button>
+		<br>
+		<br>
+		<div style="margin-left:auto;margin-right:auto;">
+			<img class="center" style="padding:5px;width:326px;height:200px;margin:10px 10px;" src="images/sydney.jpg" alt="Picture of Sydney Harbour">
+			<img class="center" style="padding:5px;width:326px;height:200px;margin:10px 10px;" src="images/beach.jpg" alt="Australian Beach">
+			<img class="center" style="padding:5px;width:326px;height:200px;margin:10px 10px;" src="images/uluru.jpg" alt="Australian Monument; Uluru">
+		</div>
+	</article>
+	<footer>
+		<p style="text-align:center"><a href="termsofuse.html" style="text-align:center"><u>Terms of Use</u></a> &nbsp;&nbsp;<a href="AboutUs.html"><u>About Us</u></a> &nbsp;&nbsp;<a href="ContactUs.html"><u>Contact Us</u></a></p>
+	</footer>
+	</div>
+</body>
+</html>

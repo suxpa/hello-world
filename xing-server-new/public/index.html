@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<script src="javascripts/file.js"></script>
+		<meta charset="utf-8">
+		<title>Hotel Search</title>
+		<link rel="stylesheet" type="text/css" href="stylesheets/file.css">
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway%7CNoto+Serif">
+	</head>
+	<body style="background-color:#00AEF0">
+		<script>
+			       var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+            
+                if (this.readyState == 4 && this.status == 200) {
+                
+                    // convert from string to JSON, populate hotels array
+                    user = JSON.parse(xhttp.responseText);
+                    
+                   document.getElementById('getusername').innerHTML="Welcome! "+user.username;
+                }
+         };	
+        //Initiate Connection
+        
+        xhttp.open("GET", "getusername", true);
+        xhttp.setRequestHeader("Content-type","application/json");
+      //sending the request
+        xhttp.send();
+		</script>
+		<div class="outsideheader">
+			<header>
+				<div id="logo">
+					<a  id="linkpageindex" href="index.html">
+						<img src="images/loto.svg" alt="" width="200" height="50">
+					</a>
+				</div>
+				<div id="getusername" style="float:left;color:white;margin:12px;font-size:1.5em";></div>
+			<ul class="nav">
+
+				<li><a style="font-family:Montserrat;font-size:12px;" href="LogIn.html">Sign in</a></li>
+				<li><a style="font-family:Montserrat;font-size:12px;" href="signUp.html">Register</a></li>
+				<li><a style="font-family:Montserrat;font-size:12px;">My Searches</a></li>
+				<li><a style="font-family:Montserrat;font-size:12px;">Recently Viewed</a></li>
+				<li>
+				<div class="dropdown">
+					<button onclick="myFunction()" class="dropbtn" style="font-size:12px;font-family:Montserrat">Currency</button>
+					<div id="myDropdown" class="dropdown-content" style="text-align: center;">
+						<a style="font-size:10px;text-align:center;" href="$AUD">$AUD</a>
+						<a style="font-size:10px;text-align:center;" href="€Euro">&euro;Euro</a>
+						<a style="font-size:10px;text-align:center;" href="$USD">$USD</a>
+						<a style="font-size:10px;text-align:center;" href="£GBP">£GBP</a>
+					</div>
+			</div>
+		</li>
+			</ul>
+		</header>
+		<article>
+		
+			<div style="background-color:#00AEF0;width:100%;height:720px;">
+				<div id="mid-top">
+					<div id="l_content">
+						<div style="width:50%;margin:20px auto;">
+							<p style="margin-left:10px;">where?</p>
+							<input type="text" name="place" value="Adelaide" id="icon" style="margin:10px;width:330px;height:30px;">
+							<p style="margin-left:10px;">Check-in</p>
+							<img src="images/b.png" alt="b" style="margin:0px 5px 0 4px;"><input type="text" name="place"  style="margin:10px;width:300px;height:30px;">
+							<p style="margin-left:10px;">Check-out</p>
+							<img src="images/b.png" alt="b" style="margin:0px 5px 0 4px;"><input type="text" name="place"  style="margin:10px;width:300px;height:30px;">
+							<p style="margin-left:10px;">Rooms for</p>
+							 <select style="margin:10px 40px;width:300px;height:30px;">
+							   <option value="1">1</option>
+							   <option value="2">2</option>
+							   <option value="3">3</option>
+							   <option value="4" selected>4</option>
+							</select>
+							<a href="refinement.html"><div id="search-button"><p style="padding-top:17px;">Search</p></div></a>
+							<div style="text-align:center;"><a href="map.html" style="font-size:1.5em;color:white;text-decoration:none;">Check hotels on the map!</a></div>
+						</div>
+					</div>
+					<div id="r_content">
+						<h4 style="text-align:left;margin-top:150px;margin-left:20px;">The best hotel deals of South Australia</h4>
+						<img src="images/loto.svg" alt="HotelSearch" style="width:275px;margin-left:10px;">
+					</div>
+
+				</div>
+
+
+			</div>
+			
+	</article>
+		<footer>
+			<p style="text-align:center"><a href="termsofuse.html" style="text-align:center"><u>Terms of Use</u></a> &nbsp;&nbsp;<a href="AboutUs.html"><u>About Us</u></a> &nbsp;&nbsp;<a href="ContactUs.html"><u>Contact Us</u></a></p>
+		</footer>
+		</div>
+	</body>
+</html>
